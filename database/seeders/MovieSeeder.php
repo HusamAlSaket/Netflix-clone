@@ -19,6 +19,7 @@ class MovieSeeder extends Seeder
             'release_date' => 1999,
             'is_popular' => true, 
         'image_url' => 'images/the-matrix.jpg',
+        'video_url' => 'https://www.youtube.com/embed/vKQi3bBA1y8',
         ]);
 
         Movie::create([
@@ -27,6 +28,7 @@ class MovieSeeder extends Seeder
             'release_date' => 2010,
             'is_popular' => true, 
         'image_url' => 'images/the-inception.jfif',
+        'video_url' => 'https://www.youtube.com/embed/YoHD9XEInc0',
         ]);
 
         Movie::create([
@@ -35,6 +37,7 @@ class MovieSeeder extends Seeder
             'release_date' => 2008,
             'is_popular' => true, 
             'image_url' => 'images/thedark-knight.jfif',
+            'video_url' => 'https://www.youtube.com/embed/EXeTwQWrcwY',
         ]);
 
         Movie::create([
@@ -43,6 +46,7 @@ class MovieSeeder extends Seeder
             'release_date' => 2014,
             'is_popular' => false, 
             'image_url' => 'images/interstellar.jfif',
+            'video_url' => 'https://www.youtube.com/embed/2LqzF5WauAw',
         ]);
         Movie::create([
             'title' => 'extraction 2',
@@ -50,6 +54,7 @@ class MovieSeeder extends Seeder
             'release_date' => '2023',
             'is_popular' => true, 
             'image_url' => 'images/extraction.jpg',
+            'video_url' => 'https://www.youtube.com/embed/Y274jZs5s7s',
         ]);
 
 
