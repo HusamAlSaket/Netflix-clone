@@ -9,7 +9,7 @@ class Show extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['title', 'description', 'release_date', 'rating', 'image_url'];
+    protected $fillable = ['title', 'description', 'release_date', 'rating', 'image_url','is_popular'];
 
     // Many-to-many relationship with Genre
     public function genres()

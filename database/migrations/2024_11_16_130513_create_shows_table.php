@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('image_url');
             $table->string('release_date');
             $table->integer('rating')->nullable();
+            $table->boolean('is_popular')->default(false); 
             $table->timestamps();
         });
     }

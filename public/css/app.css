@@ -4783,7 +4783,7 @@ Carousel Movies
 }
 
 .gen-carousel-movies-style-3 .gen-movie-contain .gen-movie-meta-holder ul li:before {
-    content: "";
+
     position: absolute;
     top: 50%;
     margin-top: -2px;
