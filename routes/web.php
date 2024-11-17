@@ -17,12 +17,15 @@ use App\Http\Controllers\SubscribeController;
 Route::get('/customers', [HomeController::class, 'index'])->name('customers.index'); 
 Route::get('/customers/latest', [HomeController::class, 'latest'])->name('customers.latest');
 
+
 // Movie Controllers
 Route::get('/customers/movies', [MovieController::class, 'index'])->name('movies.index');
 // this could be a duplicate by mistake 
 // Route::get('/customers/movies/{id}', [MovieController::class, 'show'])->name('movies.show');
 // Route::get('movies', [MovieController::class, 'index'])->name('movie.index');
 Route::get('movie/{id}', [MovieController::class, 'show'])->name('movie.show');
+Route::get('/movies/{id}', [MovieController::class, 'show'])->name('movies.show');
+// Route::get('/trend/{id}', [TrendController::class, 'show'])->name('trend.show');
 
 // show controllers
 

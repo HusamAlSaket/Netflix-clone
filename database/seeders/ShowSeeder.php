@@ -19,6 +19,7 @@ class ShowSeeder extends Seeder
             'release_date' => 2016,
             'is_popular' => true, 
             'image_url' => 'images/stranger-things.jpg',
+            'video_url' => 'https://www.youtube.com/embed/mnd7sFt5c3A',
 
         ]);
 
@@ -28,6 +29,8 @@ class ShowSeeder extends Seeder
             'release_date' => 2008,
             'is_popular' => true,
             'image_url' => 'images/breaking-bad.jpg',
+            'video_url' => 'https://www.youtube.com/embed/HhesaQXLuRY',
+
         ]);
 
         Show::create([
@@ -36,6 +39,8 @@ class ShowSeeder extends Seeder
             'release_date' => 2016,
             'is_popular' => true, 
             'image_url' => 'images/the-crown.jfif',
+            'video_url' => 'https://www.youtube.com/embed/JWtnJjn6ng0',
+
         ]);
 
         Show::create([
@@ -44,6 +49,8 @@ class ShowSeeder extends Seeder
             'release_date' => 2011,
             'is_popular' => false,
             'image_url' => 'images/black-mirror.jpg',
+            'video_url' => 'https://www.youtube.com/embed/-qIlCo9yqpY',
+
         ]);
         Show::create([
             'title' => 'From',
@@ -51,6 +58,8 @@ class ShowSeeder extends Seeder
             'release_date' => 2022,
             'is_popular' => false,
             'image_url' => 'images/from.jfif',
+            'video_url' => 'https://www.youtube.com/embed/pDHqAj4eJcM',
+
         ]);
         Show::create([
             'title' => 'Manifest',
@@ -58,6 +67,8 @@ class ShowSeeder extends Seeder
             'release_date' => 2018,
             'is_popular' => true,
             'image_url' => 'images/manifest.jpg',
+            'video_url' => 'https://www.youtube.com/embed/I1hNAIzkQWY',
+
         ]);
 
     }

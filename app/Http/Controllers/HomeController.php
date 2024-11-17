@@ -19,8 +19,12 @@ class HomeController extends Controller
         $newMovies = $this->getLatestMovies();
         $newShows = $this->getLatestShows();
 
+        $trendingMovies=Movie::orderBy('rating','desc')->take(5)->get();
+        $trendingShows=Show::orderBy('rating','desc')->take(5)->get();
+        $trending=$trendingMovies->merge($trendingShows);
+
         // Passing data to view
-        return view('customers.index', compact('popularMovies', 'popularShows', 'categories', 'newMovies', 'newShows'));
+        return view('customers.index', compact('popularMovies', 'popularShows', 'categories', 'newMovies', 'newShows','trending'));
     }
 
     private function getLatestMovies()
