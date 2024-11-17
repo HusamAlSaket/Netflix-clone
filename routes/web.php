@@ -14,13 +14,12 @@ use App\Http\Controllers\SubscribeController;
 
 
 // home controllers 
+Route::get('/', [HomeController::class, 'index'])->name('customers.index');
 Route::get('/customers', [HomeController::class, 'index'])->name('customers.index');
 Route::get('/customers/latest', [HomeController::class, 'latest'])->name('customers.latest');
 
 
 // Movie Controllers
-Route::get('/customers/movies', [MovieController::class, 'index'])->name('movies.index');
-
 Route::get('movie/{id}', [MovieController::class, 'show'])->name('movie.show');
 Route::get('/movies/{id}', [MovieController::class, 'show'])->name('movies.show');
 Route::get('/customers/movies', [MovieController::class, 'movies'])->name('customers.movies');
@@ -42,7 +41,7 @@ Route::get('/customers/subscribe', [SubscribeController::class, 'index']); // Su
 
 // potential duplicates 
 
-
+// Route::get('/customers/movies', [MovieController::class, 'index'])->name('movies.index');
 // Route::get('/customers/shows/{id}', [ShowController::class, 'show'])->name('shows.show');
 // Route::get('/trend/{id}', [TrendController::class, 'show'])->name('trend.show');
 // Route::get('/customers/movies/{id}', [MovieController::class, 'show'])->name('movies.show');

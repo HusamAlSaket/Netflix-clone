@@ -16,7 +16,6 @@ class ShowController extends Controller
     public function show($id)
     {
         $show = Show::findOrFail($id);
-        // $movie=Movie::findOrFail($id);
         return view('customers.show', compact('show'));
     }
 }

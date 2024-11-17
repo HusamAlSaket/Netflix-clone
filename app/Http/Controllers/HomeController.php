@@ -19,6 +19,7 @@ class HomeController extends Controller
         $newMovies = $this->getLatestMovies();
         $newShows = $this->getLatestShows();
 
+        // fetch the trending movies and shows using slider
         $trendingMovies=Movie::orderBy('rating','desc')->take(5)->get();
         $trendingShows=Show::orderBy('rating','desc')->take(5)->get();
         $trending=$trendingMovies->merge($trendingShows);

@@ -26,7 +26,7 @@ class MovieSeeder extends Seeder
             'description' => 'A hacker learns from mysterious rebels about the true nature of his reality and his role in the war against its controllers.',
             'release_date' => 1999,
             'is_popular' => true,
-            'image_url' => 'images/the-matrix.jpg',
+            'image_url' => 'images/thematrixx.jpg',
             'video_url' => 'https://www.youtube.com/embed/vKQi3bBA1y8',
         ]);
         $movie1->genres()->attach([$action->id, $sciFi->id]); // Attach genres
@@ -46,7 +46,7 @@ class MovieSeeder extends Seeder
             'description' => 'When the menace known as The Joker emerges from his mysterious past, he wreaks havoc and chaos on the people of Gotham.',
             'release_date' => 2008,
             'is_popular' => true,
-            'image_url' => 'images/thedark-knight.jfif',
+            'image_url' => 'images/darknightt.jpg',
             'video_url' => 'https://www.youtube.com/embed/EXeTwQWrcwY',
         ]);
         $movie3->genres()->attach([$action->id, $thriller->id]); // Attach genres
@@ -56,7 +56,7 @@ class MovieSeeder extends Seeder
             'description' => 'A team of explorers travel through a wormhole in space in an attempt to ensure humanity\'s survival.',
             'release_date' => 2014,
             'is_popular' => false,
-            'image_url' => 'images/interstellar.jfif',
+            'image_url' => 'images/maxresdefault.jpg',
             'video_url' => 'https://www.youtube.com/embed/2LqzF5WauAw',
         ]);
         $movie4->genres()->attach([$sciFi->id, $drama->id]); // Attach genres
@@ -70,5 +70,37 @@ class MovieSeeder extends Seeder
             'video_url' => 'https://www.youtube.com/embed/Y274jZs5s7s',
         ]);
         $movie5->genres()->attach([$action->id]); // Attach genre
+
+        $movie6 = Movie::create([
+            'title' => 'Lift',
+            'description' => 'Follows a master thief and his Interpol Agent ex-girlfriend who team up to steal $500 million in gold bullion being transported on an A380 passenger flight.',
+            'release_date' => '2024',
+            'is_popular' => true,
+            'image_url' => 'images/lift.jpg',
+            'video_url' => 'https://www.youtube.com/embed/m2L-Sa_6MU0',
+        ]);
+        $movie6->genres()->attach([$action->id]); // Attach genre
+
+        $movie7 = Movie::create([
+            'title' => 'Red Notice',
+            'description' => 'An Interpol agent successfully tracks down the world most wanted art thief with help from a rival thief. But nothing is as it seems as a series of double-crosses ensues.',
+            'release_date' => '2021',
+            'is_popular' => true,
+            'image_url' => 'images/rednotice.jpg',
+            'video_url' => 'https://www.youtube.com/embed/T6l3mM7AWew',
+        ]);
+        $movie7->genres()->attach([$action->id]); // Attach genre
+
+        $movie8 = Movie::create([
+            'title' => '6 Undergrounds',
+            'description' => 'It follows a group of people who fake their deaths and decide to form a vigilante team in order to stage a coup detat against a ruthless dictator.',
+            'release_date' => '2019',
+            'is_popular' => true,
+            'image_url' => 'images/1178893.jpg',
+            'video_url' => 'https://www.youtube.com/embed/YLE85olJjp8',
+        ]);
+        $movie8->genres()->attach([$action->id]); // Attach genre
     }
+    
+
 }

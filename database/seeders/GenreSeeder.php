@@ -11,7 +11,6 @@ class GenreSeeder extends Seeder
      */
     public function run(): void
     {
-        // Insert predefined genres into the genres table
         DB::table('genres')->insert([
             ['name' => 'Action'],
             ['name' => 'Comedy'],
