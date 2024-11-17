@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 
-
-<!-- Mirrored from template.gentechtreedesign.com/html/streamlab/red-html/movies-home.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 15 Nov 2024 15:15:26 GMT -->
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="Streamlab - Video Streaming HTML5 Template" />
@@ -46,7 +44,8 @@
                                             <a href="#" aria-current="page">Home</a>
                                         </li>
                                     <li class="menu-item">
-            <a href="#">Movies</a>
+                                        <a href="">Movies</a>
+
             <i class="fa fa-chevron-down gen-submenu-icon"></i>
         <ul class="sub-menu">
         <li class="menu-item">
@@ -150,9 +149,6 @@
 </ul>
 </li>
 
-
-                                      
-                                    
 <li class="menu-item">
     <a href="#">Pages</a>
     <i class="fa fa-chevron-down gen-submenu-icon"></i>
@@ -636,7 +632,7 @@
                 <div class="col-xl-6 col-lg-6 col-md-6 d-none d-md-inline-block">
                     <div class="gen-movie-action">
                         <div class="gen-btn-container text-right">
-                            <a href="{{ route('movies.index') }}" class="gen-button gen-button-flat">
+                            {{-- <a href="{{ route('movies.index') }}" class="gen-button gen-button-flat"> --}}
                                 <span class="text">More Videos</span>
                             </a>
                         </div>
@@ -823,14 +819,23 @@
                                                         </ul>
                                                         <p>{{ Str::limit($trend->description, 150) }}</p>
                                                     </div>
-                                                    <div class="gen-movie-action">
-                                                        <div class="gen-btn-container button-1">
-                                                            <!-- Watch Trailer Button -->
+                                                    <div class="gen-btn-container button-1">
+                                                        <!-- Check if it's a movie -->
+                                                        @if(isset($movie))
+                                                            <a href="{{ route('movie.show', $trend->id) }}" class="gen-button">
+                                                                <span class="text">Watch Trailer</span>
+                                                            </a>
+                                                            @endif
+                                                        
+                                                    
+                                                        <!-- Check if it's a show -->
+                                                        @if(isset($show))
                                                             <a href="{{ route('show.show', $trend->id) }}" class="gen-button">
                                                                 <span class="text">Watch Trailer</span>
                                                             </a>
-                                                        </div>
+                                                        @endif
                                                     </div>
+                                                    
                                                 </div>
                                             </div>
                                         </div>

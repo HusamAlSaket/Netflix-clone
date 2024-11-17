@@ -23,7 +23,7 @@ class Show extends Model
         return $this->belongsToMany(Actor::class, 'show_actor');
     }
     public function watchlists()
-    {
+    { 
         return $this->belongsToMany(Watchlist::class);
     }
 }

@@ -1,9 +1,8 @@
 <?php
-
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class GenreSeeder extends Seeder
 {
@@ -12,6 +11,16 @@ class GenreSeeder extends Seeder
      */
     public function run(): void
     {
-        //
+        // Insert predefined genres into the genres table
+        DB::table('genres')->insert([
+            ['name' => 'Action'],
+            ['name' => 'Comedy'],
+            ['name' => 'Drama'],
+            ['name' => 'Horror'],
+            ['name' => 'Romance'],
+            ['name' => 'Sci-Fi'],
+            ['name' => 'Documentary'],
+            ['name' => 'Thriller'],
+        ]);
     }
 }

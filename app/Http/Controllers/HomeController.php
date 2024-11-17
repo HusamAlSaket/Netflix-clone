@@ -23,6 +23,7 @@ class HomeController extends Controller
         $trendingShows=Show::orderBy('rating','desc')->take(5)->get();
         $trending=$trendingMovies->merge($trendingShows);
 
+
         // Passing data to view
         return view('customers.index', compact('popularMovies', 'popularShows', 'categories', 'newMovies', 'newShows','trending'));
     }

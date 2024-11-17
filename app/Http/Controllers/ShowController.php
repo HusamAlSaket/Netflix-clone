@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Show;
+// use App\Models\Movie;
 
 class ShowController extends Controller
 {
@@ -15,6 +16,7 @@ class ShowController extends Controller
     public function show($id)
     {
         $show = Show::findOrFail($id);
+        // $movie=Movie::findOrFail($id);
         return view('customers.show', compact('show'));
     }
 }
