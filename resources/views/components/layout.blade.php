@@ -22,7 +22,7 @@
     <!--=========== Loader =============-->
     <div id="gen-loading">
         <div id="gen-loading-center">
-            <img src="images/logo-1.png" alt="loading">
+            <img src="{{ asset('images/logo-1.png') }}" class="gen-footer-logo" alt="gen-footer-logo">
         </div>
     </div>
     <!--=========== Loader =============-->
@@ -30,17 +30,17 @@
     <!--========== Header ==============-->
     <header id="gen-header" class="gen-header-style-1 gen-has-sticky">
 
-        
+
         <div class="gen-bottom-header">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12">
                         <nav class="navbar navbar-expand-lg navbar-light">
                             <a class="navbar-brand" href="#">
-                                <img class="img-fluid logo" src="images/logo-1.png" alt="streamlab-image">
+                                <img src="{{ asset('images/logo-1.png') }}" class="gen-footer-logo" alt="gen-footer-logo">
                             </a>
                             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                                <div id="gen-menu-contain" class="gen-menu-contain">
+                                <div id="gen-menu-contain" class="gen-menu-contain d-flex align-items-center w-100">
                                     <ul id="gen-main-menu" class="navbar-nav ml-auto">
                                         <li class="menu-item active">
                                             <a href="{{ route('customers.index') }}" aria-current="page">Home</a>
@@ -49,7 +49,7 @@
                                             <a href="{{ route('customers.movies') }}">Movies</a>
                                             <i class="fa fa-chevron-down gen-submenu-icon"></i>
                                             <ul class="sub-menu">
-                                                @foreach(App\Models\Genre::all()  as $genre)
+                                                @foreach (App\Models\Genre::all() as $genre)
                                                     <li class="menu-item">
                                                         <a href="{{ route('genre.show', $genre->name) }}">{{ $genre->name }}</a>
                                                     </li>
@@ -63,6 +63,23 @@
                                                 <!-- Existing TV show categories here -->
                                             </ul>
                                         </li>
+                                        <li class="menu-item">
+                                            <a href="{{ route('customers.watchlist') }}">WatchList</a>
+                                        </li>
+                                    </ul>
+                                    <form action="{{ route('search') }}" method="GET" class="d-flex ml-auto align-items-center">
+                                        <input type="text" name="query" class="form-control form-control-sm me-2" placeholder="Search" required>
+                                        <button type="submit" class="btn btn-danger btn-sm">Search</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+                                        
                                         <!-- Other Menu Items -->
                                     </ul>
                                 </div>
@@ -70,17 +87,22 @@
                             <div class="gen-header-info-box">
                                 <!-- User Menu and Other Items -->
                             </div>
-                            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <button class="navbar-toggler" type="button" data-toggle="collapse"
+                                data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                                aria-expanded="false" aria-label="Toggle navigation">
                                 <i class="fas fa-bars"></i>
                             </button>
                         </nav>
-                        
+
                     </div>
                 </div>
             </div>
         </div>
     </header>
 
+    <div class="main-content">
+        @yield('content') <!-- Main Content Placeholder -->
+    </div>
     {{-- <main class ="container">
         {{ $slot }}
         </main>
@@ -94,14 +116,18 @@
                             <div class="widget">
                                 <div class="row">
                                     <div class="col-sm-12">
-                                        <img src="images/logo-1.png" class="gen-footer-logo" alt="gen-footer-logo">
-                                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                                        <img src="{{ asset('images/logo-1.png') }}" class="gen-footer-logo"
+                                            alt="gen-footer-logo">
+                                        <p>follow us on our other social media accounts
                                         </p>
                                         <ul class="social-link">
-                                            <li><a href="#" class="facebook"><i class="fab fa-facebook-f"></i></a></li>
-                                            <li><a href="#" class="facebook"><i class="fab fa-instagram"></i></a></li>
+                                            <li><a href="#" class="facebook"><i class="fab fa-facebook-f"></i></a>
+                                            </li>
+                                            <li><a href="#" class="facebook"><i class="fab fa-instagram"></i></a>
+                                            </li>
                                             <li><a href="#" class="facebook"><i class="fab fa-skype"></i></a></li>
-                                            <li><a href="#" class="facebook"><i class="fab fa-twitter"></i></a></li>
+                                            <li><a href="#" class="facebook"><i class="fab fa-twitter"></i></a>
+                                            </li>
                                         </ul>
                                     </div>
                                 </div>
@@ -116,14 +142,9 @@
                                             <a href="index.html" aria-current="page">Home</a>
                                         </li>
                                         <li class="menu-item"><a href="movies-pagination.html">Movies</a></li>
-                                        
+
 
                                         <li class="menu-item"><a href="tv-shows-pagination.html">Tv Shows</a></li>
-                                        <li class="menu-item"><a href="video-pagination.html">Videos</a></li>
-                                        <li class="menu-item"><a href="#">Actors</a></li>
-                                        <li class="menu-item"><a href="#">Basketball</a></li>
-                                        <li class="menu-item"><a href="#">Celebrity</a></li>
-                                        <li class="menu-item"><a href="#">Cross</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -133,18 +154,12 @@
                                 <h4 class="footer-title">Company</h4>
                                 <div class="menu-about-container">
                                     <ul class="menu">
-                                        <li class="menu-item"><a href="contact-us.html">Company</a>
                                         </li>
                                         <li class="menu-item"><a href="contact-us.html">Privacy
                                                 Policy</a></li>
-                                        <li class="menu-item"><a href="contact-us.html">Terms Of
-                                                Use</a></li>
-                                        <li class="menu-item"><a href="contact-us.html">Help
-                                                Center</a></li>
+
                                         <li class="menu-item"><a href="contact-us.html">contact us</a></li>
                                         <li class="menu-item"><a href="pricing-style-1.html">Subscribe</a></li>
-                                        <li class="menu-item"><a href="#">Our Team</a></li>
-                                        <li class="menu-item"><a href="contact-us.html">Faq</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -154,14 +169,15 @@
                                 <h4 class="footer-title">Downlaod App</h4>
                                 <div class="row">
                                     <div class="col-sm-12">
-                                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                                        <p>Download Our App And Enjoy accessing all movies and images all at the ease of
+                                            your finger tips
                                         </p>
                                         <a href="#">
-                                            <img src="images/asset-35.png" class="gen-playstore-logo" alt="playstore">
+                                            <img src="{{ asset('images/asset-35.png') }}" alt="playstore"
+                                                class="img-fluid" style="max-height: 120px; width: auto;">
                                         </a>
-                                        <a href="#">
-                                            <img src="images/asset-36.png" class="gen-appstore-logo" alt="appstore">
-                                        </a>
+
+
                                     </div>
                                 </div>
                             </div>
@@ -173,7 +189,8 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-md-12 align-self-center">
-                            <span class="gen-copyright"><a target="_blank" href="#"> Copyright 2021 stremlab All Rights
+                            <span class="gen-copyright"><a target="_blank" href="#"> Copyright 2021 stremlab
+                                    All Rights
                                     Reserved.</a></span>
                         </div>
                     </div>
@@ -181,29 +198,47 @@
             </div>
         </div>
     </footer>
+  
     <!-- footer End -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Get all navbar links
+            const navLinks = document.querySelectorAll('#gen-main-menu .menu-item a');
 
+            const currentUrl = window.location.href;
+
+            navLinks.forEach(link => {
+                if (currentUrl === link.href) {
+                    link.parentElement.classList.add('active');
+                } else {
+                    link.parentElement.classList.remove('active');
+                }
+            });
+        });
+    </script>
     <!-- Back-to-Top start -->
     <div id="back-to-top">
         <a class="top" id="top" href="#top"> <i class="ion-ios-arrow-up"></i> </a>
     </div>
     <!-- footer start -->
     <script src="/js/jquery-3.6.0.min.js"></script>
-<script src="/js/asyncloader.min.js"></script>
-<script src="/js/bootstrap.min.js"></script>
-<script src="/js/owl.carousel.min.js"></script>
-<script src="/js/jquery.waypoints.min.js"></script>
-<script src="/js/jquery.counterup.min.js"></script>
-<script src="/js/popper.min.js"></script>
-<script src="/js/swiper-bundle.min.js"></script>
-<script src="/js/isotope.pkgd.min.js"></script>
-<script src="/js/jquery.magnific-popup.min.js"></script>
-<script src="/js/slick.min.js"></script>
-<script src="/js/streamlab-core.js"></script>
-<script src="/js/script.js"></script>
+    <script src="/js/asyncloader.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/owl.carousel.min.js"></script>
+    <script src="/js/jquery.waypoints.min.js"></script>
+    <script src="/js/jquery.counterup.min.js"></script>
+    <script src="/js/popper.min.js"></script>
+    <script src="/js/swiper-bundle.min.js"></script>
+    <script src="/js/isotope.pkgd.min.js"></script>
+    <script src="/js/jquery.magnific-popup.min.js"></script>
+    <script src="/js/slick.min.js"></script>
+    <script src="/js/streamlab-core.js"></script>
+    <script src="/js/script.js"></script>
 
-
+    {{-- <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> --}}
+    {{-- @stack('scripts') --}}
 </body>
+
 
 
 <!-- Mirrored from template.gentechtreedesign.com/html/streamlab/red-html/movies-home.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 15 Nov 2024 15:15:29 GMT -->

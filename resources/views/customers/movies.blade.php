@@ -1,8 +1,21 @@
 @extends('components.layout')
 
-
-
+<div class="gen-breadcrumb" style="background-image: url('images/background/asset-25.jpg'); padding: 30px 0;">
     <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-12">
+                <nav aria-label="breadcrumb">
+                    <div class="gen-breadcrumb-title">
+                        <h1 class="text-danger" style="margin-bottom: 10px;">Movies</h1>
+                    </div>
+                    <div class="gen-breadcrumb-container">
+                        <!-- Breadcrumb content here if needed -->
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
 
         <!-- Check if movies variable exists and has data -->
         @if(isset($movies) && $movies->count())
@@ -24,34 +37,12 @@
                                                     <button type="button" class="wp_ulike_btn wp_ulike_put_image"></button>
                                                 </div>
                                             </div>
-                                            <ul class="menu bottomRight">
-                                                <li class="share top">
-                                                    <i class="fa fa-share-alt"></i>
-                                                    <ul class="submenu">
-                                                        <li><a href="#" class="facebook"><i class="fab fa-facebook-f"></i></a></li>
-                                                        <li><a href="#" class="instagram"><i class="fab fa-instagram"></i></a></li>
-                                                        <li><a href="#" class="twitter"><i class="fab fa-twitter"></i></a></li>
-                                                    </ul>
-                                                </li>
-                                            </ul>
-                                            <div class="movie-actions--link_add-to-playlist dropdown">
-                                                <a class="dropdown-toggle" href="#" data-toggle="dropdown"><i class="fa fa-plus"></i></a>
-                                                <div class="dropdown-menu mCustomScrollbar">
-                                                    <div class="mCustomScrollBox">
-                                                        <div class="mCSB_container">
-                                                            <a class="login-link" href="register.html">Sign in to add this movie to a playlist.</a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                
+                                            
                                         </div>
     
                                         <!-- Play Button -->
-                                        <div class="gen-movie-action">
-                                            <a href="{{ route('movie.show', $movie->id) }}" class="gen-button">
-                                                <i class="fa fa-play"></i>
-                                            </a>
-                                        </div>
+                                    
                                     </div>
     
                                     <!-- Movie Info Section -->
@@ -75,6 +66,12 @@
                                         <div class="gen-movie-release-date">
                                             <p><strong>Release Date:</strong> {{ $movie->release_date }}</p>
                                         </div>
+                                        <button class="btn btn-outline-danger btn-sm">
+                                            <i class="fa fa-heart"></i> Like
+                                        </button>
+                                        <a href="{{ route('movie.show', $movie->id) }}" class="btn btn-danger text-white btn-sm">
+                                            <i class="fa fa-play"></i> Play
+                                        </a>
                                     </div>
                                 </div>
                             </div>

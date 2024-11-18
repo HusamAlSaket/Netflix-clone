@@ -11,6 +11,8 @@ use App\Http\Controllers\BlogController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\PricingController;
 use App\Http\Controllers\SubscribeController;
+use App\Http\Controllers\SearchController;
+
 
 
 // home controllers 
@@ -45,6 +47,9 @@ Route::get('/customers/subscribe', [SubscribeController::class, 'index']); // Su
 
 
 Route::get('/customers/genre/{genre}', [GenreController::class, 'show'])->name('genre.show');
+
+Route::get('/search', [SearchController::class, 'search'])->name('search');
+
 
 // potential duplicates 
 
