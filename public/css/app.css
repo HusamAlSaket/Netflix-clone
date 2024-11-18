@@ -5357,7 +5357,6 @@ Banner
 }
 
 .gen-banner-movies .gen-movie-contain .gen-movie-meta-holder ul li:before {
-    content: "";
     position: absolute;
     top: 50%;
     margin-top: -2px;

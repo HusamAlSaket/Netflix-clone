@@ -32,12 +32,19 @@ Route::get('show/{id}', [ShowController::class, 'show'])->name('show.show');
 
 // subscribe blog watchlist pricing and contact page Controllers
 
-Route::get('/customers/watchlist', [WatchlistController::class, 'index']); // Watchlist
+Route::get('/customers/watchlist', [WatchlistController::class, 'index']);
+Route::get('/watchlist', [WatchlistController::class, 'index'])->name('customers.watchlist');
+Route::post('/watchlist/add', [WatchlistController::class, 'add'])->name('customers.watchlist.add');
+Route::delete('/watchlist/remove/{id}', [WatchlistController::class, 'remove'])->name('customers.watchlist.remove');
+
+
 Route::get('/customers/blog', [BlogController::class, 'index']); // Blog page
 Route::get('/customers/contact', [ContactController::class, 'index']); // Contact us page
 Route::get('/customers/pricing', [PricingController::class, 'index']); // Pricing page
 Route::get('/customers/subscribe', [SubscribeController::class, 'index']); // Subscribe page
 
+
+Route::get('/customers/genre/{genre}', [GenreController::class, 'show'])->name('genre.show');
 
 // potential duplicates 
 

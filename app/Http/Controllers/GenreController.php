@@ -1,26 +1,21 @@
 <?php
-
 namespace App\Http\Controllers;
 
 use App\Models\Genre;
 
 class GenreController extends Controller
 {
-    public function show($genreName)
+    public function show($genre)
     {
-        $genre = Genre::where('name', $genreName)->firstOrFail();
-    
-        $popularMovies = $genre->movies()->where('is_popular', true)->get();
-        dd($popularMovies);
+        $genreData = Genre::where('name', $genre)->with('movies')->first();
 
-        return view('customers.genre.show', compact('genre', 'popularMovies'));
-    }
-    public function index() {
+        if (!$genreData) {
+            abort(404, 'Genre not found');
+        }
 
-        $genres = Genre::all();
-        return view('genre.show', compact('genres'));
+        return view('customers.genre', [
+            'genre' => $genreData->name,
+            'movies' => $genreData->movies
+        ]);
     }
-    
-    
-    
 }

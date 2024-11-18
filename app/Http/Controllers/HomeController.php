@@ -10,24 +10,30 @@ class HomeController extends Controller
 {
     public function index()
     {
-        // Fetching popular movies, shows, and categories
+        // Fetch popular movies, shows, and categories
         $popularMovies = Movie::where('is_popular', true)->take(5)->get();
         $popularShows = Show::where('is_popular', true)->take(5)->get();
         $categories = Category::all();
-
+    
         // Fetch the latest movies and shows
         $newMovies = $this->getLatestMovies();
         $newShows = $this->getLatestShows();
-
-        // fetch the trending movies and shows using slider
-        $trendingMovies=Movie::orderBy('rating','desc')->take(5)->get();
-        $trendingShows=Show::orderBy('rating','desc')->take(5)->get();
-        $trending=$trendingMovies->merge($trendingShows);
-
-
+    
+        // Fetch the trending movies and shows
+        $trendingMovies = Movie::orderBy('rating', 'desc')->take(10)->get()->map(function ($movie) {
+            $movie->type = 'movie'; // Add type metadata
+            return $movie;
+        });
+        $trendingShows = Show::orderBy('rating', 'desc')->take(5)->get()->map(function ($show) {
+            $show->type = 'show'; // Add type metadata
+            return $show;
+        });
+        $trending = $trendingMovies->merge($trendingShows);
+    
         // Passing data to view
-        return view('customers.index', compact('popularMovies', 'popularShows', 'categories', 'newMovies', 'newShows','trending'));
+        return view('customers.index', compact('popularMovies', 'popularShows', 'categories', 'newMovies', 'newShows', 'trending'));
     }
+    
 
     private function getLatestMovies()
     {

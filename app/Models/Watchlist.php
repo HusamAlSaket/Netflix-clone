@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -9,15 +8,16 @@ class Watchlist extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['user_id'];
+    protected $fillable = ['customer_id', 'movie_id', 'show_id'];
 
-
-    public function movies()
+    // Singular names for relationships
+    public function movie()
     {
-        return $this->belongsToMany(Movie::class);
+        return $this->belongsTo(Movie::class, 'movie_id');
     }
-    public function shows()
+
+    public function show()
     {
-        return $this->belongsToMany(Show::class);
+        return $this->belongsTo(Show::class, 'show_id');
     }
 }
